@@ -89,6 +89,7 @@ export const TransactionProvider = ({ children }) => {
             if (!ethereum) return alert('Please install metamask');
             const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
             console.log(' accounts ', accounts);
+            window.location.reload();
 
         } catch (error) {
             console.log(error);
@@ -124,6 +125,7 @@ export const TransactionProvider = ({ children }) => {
 
             const transactionCount = await transactionContract.getTransactionCount();
             setTransactionCount(transactionCount.toNumber());
+            // window.location.reload();
         } catch (error) {
             console.log(error);
             throw new Error('no ethereum object');
